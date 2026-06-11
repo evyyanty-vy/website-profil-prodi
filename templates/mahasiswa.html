@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Daftar Mahasiswa{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <h1><i class="bi bi-people-fill me-3"></i>Daftar Mahasiswa</h1>
+    <p class="mb-0 opacity-75">{{ prodi.nama }} &mdash; {{ prodi.universitas }}</p>
+  </div>
+</div>
+
+<div class="container mb-5">
+
+  <!-- Ringkasan Status -->
+  <div class="row g-3 mb-4 text-center">
+    <div class="col-6 col-md-3">
+      <div class="card p-3">
+        <h4 class="fw-bold text-success mb-0">
+          {% set jumlah_aktif = mahasiswa_list | selectattr("status", "equalto", "Aktif") | list | length %}
+          {{ jumlah_aktif }}
+        </h4>
+        <small class="text-muted">Aktif</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card p-3">
+        <h4 class="fw-bold text-warning mb-0">
+          {% set jumlah_cuti = mahasiswa_list | selectattr("status", "equalto", "Cuti") | list | length %}
+          {{ jumlah_cuti }}
+        </h4>
+        <small class="text-muted">Cuti</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card p-3">
+        <h4 class="fw-bold text-info mb-0">
+          {% set jumlah_lulus = mahasiswa_list | selectattr("status", "equalto", "Lulus") | list | length %}
+          {{ jumlah_lulus }}
+        </h4>
+        <small class="text-muted">Lulus</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card p-3">
+        <h4 class="fw-bold text-primary mb-0">{{ mahasiswa_list | length }}</h4>
+        <small class="text-muted">Total</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabel Mahasiswa -->
+  <div class="card">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead style="background-color: #003366; color: white;">
+            <tr>
+              <th class="px-4 py-3">No</th>
+              <th class="py-3">NIM</th>
+              <th class="py-3">Nama Mahasiswa</th>
+              <th class="py-3">Angkatan</th>
+              <th class="py-3">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- FOR LOOP: Menampilkan setiap mahasiswa -->
+            {% for mhs in mahasiswa_list %}
+            <tr>
+              <td class="px-4">{{ loop.index }}</td>
+              <td><code>{{ mhs.nim }}</code></td>
+              <td><strong>{{ mhs.nama }}</strong></td>
+              <td>{{ mhs.angkatan }}</td>
+              <td>
+
+                <!-- IF STATEMENT: Menentukan warna badge berdasarkan status -->
+                {% if mhs.status == "Aktif" %}
+                  <span class="badge badge-aktif text-white px-3 py-2">
+                    <i class="bi bi-check-circle me-1"></i>Aktif
+                  </span>
+
+                {% elif mhs.status == "Cuti" %}
+                  <span class="badge badge-cuti px-3 py-2">
+                    <i class="bi bi-pause-circle me-1"></i>Cuti
+                  </span>
+
+                {% elif mhs.status == "Lulus" %}
+                  <span class="badge badge-lulus px-3 py-2">
+                    <i class="bi bi-patch-check me-1"></i>Lulus
+                  </span>
+
+                {% else %}
+                  <span class="badge badge-keluar text-white px-3 py-2">
+                    <i class="bi bi-x-circle me-1"></i>{{ mhs.status }}
+                  </span>
+
+                {% endif %}
+                <!-- END IF STATEMENT -->
+
+              </td>
+            </tr>
+            {% endfor %}
+            <!-- END FOR LOOP -->
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

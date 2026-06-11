@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Daftar Dosen{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <h1><i class="bi bi-person-badge-fill me-3"></i>Daftar Dosen</h1>
+    <p class="mb-0 opacity-75">{{ prodi.nama }} &mdash; {{ prodi.universitas }}</p>
+  </div>
+</div>
+
+<div class="container mb-5">
+
+  <p class="text-muted mb-4">
+    Total dosen: <strong>{{ dosen_list | length }} dosen</strong>
+  </p>
+
+  <div class="row g-4">
+
+    <!-- FOR LOOP: Menampilkan setiap dosen dari daftar -->
+    {% for dosen in dosen_list %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card p-4 h-100 text-center">
+
+        <!-- Foto avatar dosen -->
+        <img src="{{ dosen.foto }}"
+             alt="Foto {{ dosen.nama }}"
+             class="rounded-circle mx-auto mb-3"
+             width="80" height="80" />
+
+        <h5 class="fw-bold mb-1">{{ dosen.nama }}</h5>
+
+        <span class="badge bg-primary mb-2">{{ dosen.bidang }}</span>
+
+        <p class="text-muted small mb-1">
+          <i class="bi bi-card-text me-1"></i>NIDN: {{ dosen.nidn }}
+        </p>
+        <p class="text-muted small mb-0">
+          <i class="bi bi-envelope me-1"></i>{{ dosen.email }}
+        </p>
+
+      </div>
+    </div>
+    {% endfor %}
+    <!-- END FOR LOOP -->
+
+  </div>
+</div>
+
+{% endblock %}
