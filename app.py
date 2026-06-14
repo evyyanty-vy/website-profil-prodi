@@ -9,7 +9,7 @@ info_prodi = {
     "nama": "Program Studi Ilmu Komputer",
     "fakultas": "Fakultas Sains Teknologi dan Ilmu kesehatan",
     "universitas": "Universitas Bina Bangsa Getsempena",
-    "akreditasi": "B",
+    "akreditasi": "Baik Sekali",
     "tahun_berdiri": 2016,
     "deskripsi": (
         "Program Studi Ilmu Komputer merupakan program studi yang berfokus pada "
@@ -34,7 +34,7 @@ daftar_dosen = [
     {
         "nama": "Ully Muzakir, M.T.",
         "nidn": "0127027902",
-        "bidang": "Aljabar vektor dan Matriks",
+        "bidang": "Aljabar Vektor dan Matriks",
         "email": "Ulyy.Muzakir@gmail.com",
         "foto": "https://lh3.googleusercontent.com/d/103hMOrQMIJgp6JdbyPSfdMl0J7IGEYM_",
     },
@@ -48,7 +48,7 @@ daftar_dosen = [
     {
         "nama": "Nazuarsyah, ST, MT.",
         "nidn": "1316048101",
-        "bidang": "Pemograman Berorientasi Objek",
+        "bidang": "Pemrograman Berorientasi Objek",
         "email": "Nazuarsyah12@gmail.com",
         "foto": "https://lh3.googleusercontent.com/d/1z-8RbX4CT0mwmFs34aLDVmsBDJifieoH",
     },
@@ -67,7 +67,7 @@ daftar_mahasiswa = [
     {"nim": "221402009", "nama": "Intan Permata Sari",      "angkatan": 2022, "status": "Lulus"},
     {"nim": "231402010", "nama": "Yusuf Al-Farisi Panjaitan","angkatan": 2023, "status": "Aktif"},
     {"nim": "231402011", "nama": "Tiara Ananda Batubara",   "angkatan": 2023, "status": "Aktif"},
-    {"nim": "231402012", "nama": "Dicky Firmansyah Pasaribu","angkatan": 2023, "status": "drop out"},
+    {"nim": "231402012", "nama": "Dicky Firmansyah Pasaribu","angkatan": 2023, "status": "Drop Out"},
 ]
 
 
